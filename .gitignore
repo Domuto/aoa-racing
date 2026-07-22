@@ -1,0 +1,13 @@
+node_modules
+.next
+out
+.env*.local
+.DS_Store
+*.pem
+.vercel
+
+# Camera originals (~2.3 GB) — keep local only; web-optimized copies
+# used by the site live in public/images/events/.
+public/AOA Racing at Barber (Zenith) '26/
+public/AOA Racing at Sonoma '26/
+public/AOA Racing at VIR '26/

@@ -1,0 +1,15 @@
+# Vercel deploy ignore — mirrors .gitignore plus large local-only assets.
+.git
+node_modules
+.next
+out
+.DS_Store
+*.pem
+.env*.local
+.vercel
+
+# Camera originals (~2.3 GB) — NOT referenced by the app. Web-optimized
+# copies live in public/images/events/. Keep originals local only.
+public/AOA Racing at Barber (Zenith) '26/
+public/AOA Racing at Sonoma '26/
+public/AOA Racing at VIR '26/

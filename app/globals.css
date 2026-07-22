@@ -1,0 +1,184 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   AOA RACING — DESIGN TOKENS
+   Palette per framework: black / charcoal / white / metallic
+   gray + ONE accent color. To change the accent site-wide,
+   edit --accent below (RGB channels).
+   Racing red:   225 6 0
+   Legacy blue:  0 65 102   (old aoaracing.com brand color)
+   ============================================================ */
+:root {
+  --asphalt: 10 10 12;      /* page background (black) */
+  --panel: 19 19 22;        /* card / panel (charcoal) */
+  --panel-2: 27 28 32;      /* raised panel */
+  --line: 40 41 46;         /* hairline borders */
+  --chrome: 161 163 170;    /* metallic gray text */
+  --paper: 245 245 246;     /* white */
+  --accent: 225 6 0;        /* ONE accent — racing red */
+  --flag-green: 34 197 94;
+  --flag-yellow: 234 179 8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-asphalt text-paper font-sans antialiased;
+}
+
+::selection {
+  background: rgb(var(--accent));
+  color: #fff;
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid rgb(var(--accent));
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ------------------------------------------------------------
+   Layout helpers
+------------------------------------------------------------ */
+.container-x {
+  @apply mx-auto w-full max-w-site px-5 sm:px-8;
+}
+
+.section-pad {
+  @apply py-16 sm:py-24;
+}
+
+/* ------------------------------------------------------------
+   Typography — race-poster display + timing-tower labels
+------------------------------------------------------------ */
+.display {
+  @apply font-display uppercase leading-[0.92] tracking-[0.01em];
+}
+
+.tt-label {
+  /* "timing tower" label: mono, spaced, uppercase */
+  @apply font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-chrome;
+}
+
+.tt-label--accent {
+  @apply text-accent;
+}
+
+/* ------------------------------------------------------------
+   Buttons — action verbs only, never "Learn More"
+------------------------------------------------------------ */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 font-sans text-sm font-bold uppercase tracking-[0.08em] transition-colors duration-150 px-6 py-3.5 select-none;
+}
+
+.btn-primary {
+  @apply btn bg-accent text-white hover:bg-[#ff1a10];
+}
+
+.btn-ghost {
+  @apply btn border border-line text-paper hover:border-chrome hover:bg-panel;
+}
+
+.btn-white {
+  @apply btn bg-paper text-asphalt hover:bg-white;
+}
+
+.btn-sm {
+  @apply px-4 py-2.5 text-[12px];
+}
+
+/* ------------------------------------------------------------
+   Kerb stripe — the one decorative motif. Used sparingly:
+   base of hero + top of footer.
+------------------------------------------------------------ */
+.kerb {
+  height: 8px;
+  background: repeating-linear-gradient(
+    -45deg,
+    rgb(var(--accent)) 0 18px,
+    rgb(var(--paper)) 18px 36px
+  );
+}
+
+/* ------------------------------------------------------------
+   Cards
+------------------------------------------------------------ */
+.card {
+  @apply border border-line bg-panel;
+}
+
+.card-hover {
+  @apply transition-colors duration-150 hover:border-chrome/60;
+}
+
+/* placeholder blocks that must be replaced before launch */
+.placeholder-note {
+  @apply border border-dashed border-chrome/40 bg-panel2/60 px-4 py-3 font-mono text-[12px] leading-relaxed text-chrome;
+}
+
+/* ------------------------------------------------------------
+   Form controls
+------------------------------------------------------------ */
+.field {
+  @apply w-full border border-line bg-panel2 px-4 py-3 text-sm text-paper placeholder:text-chrome/60 focus:border-chrome focus:outline-none;
+}
+
+.field-label {
+  @apply mb-1.5 block font-mono text-[11px] font-medium uppercase tracking-[0.18em] text-chrome;
+}
+
+select.field {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23a1a3aa' stroke-width='2'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-position: right 1rem center;
+  background-repeat: no-repeat;
+  padding-right: 2.5rem;
+}
+
+/* ------------------------------------------------------------
+   Scroll reveal (Reveal.jsx toggles .is-in)
+------------------------------------------------------------ */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-ticker {
+    animation: none;
+  }
+}
+
+/* ------------------------------------------------------------
+   Ticker (upcoming events crawl)
+------------------------------------------------------------ */
+.ticker-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 6%,
+    black 94%,
+    transparent
+  );
+}
