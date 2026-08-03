@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, MapPin, Clock } from "lucide-react";
 import { SITE } from "@/lib/site";
 import ContactForm from "@/components/ContactForm";
 import SectionHead from "@/components/SectionHead";
@@ -36,14 +36,6 @@ export default function ContactPage() {
                   <span className="mt-0.5 block text-sm text-chrome">Fastest for bookings and shop questions</span>
                 </span>
               </a>
-              <a href={`mailto:${SITE.email}`} className="card card-hover flex items-start gap-4 p-5">
-                <Mail size={18} className="mt-0.5 shrink-0 text-accent" />
-                <span>
-                  <span className="tt-label block">Email</span>
-                  <span className="mt-1 block break-all font-mono text-sm text-paper">{SITE.email}</span>
-                  <span className="mt-0.5 block text-sm text-chrome">[PLACEHOLDER — confirm inbox]</span>
-                </span>
-              </a>
               <div className="card flex items-start gap-4 p-5">
                 <MapPin size={18} className="mt-0.5 shrink-0 text-accent" />
                 <address className="not-italic">
@@ -63,7 +55,6 @@ export default function ContactPage() {
                 <span>
                   <span className="tt-label block">Hours</span>
                   <span className="mt-1 block text-sm text-paper">{SITE.hours}</span>
-                  <span className="mt-0.5 block text-sm text-chrome">[PLACEHOLDER — confirm hours]</span>
                 </span>
               </div>
               <div className="relative aspect-[16/10] overflow-hidden border border-line bg-panel">

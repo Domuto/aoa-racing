@@ -110,16 +110,16 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/race-team" className="text-chrome hover:text-paper">
-                  Explore Race Programs
+                <Link href="/racing" className="text-chrome hover:text-paper">
+                  Explore Racing Programs
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/race-team#inquiries"
+                  href="/shop/custom-inquiry"
                   className="text-chrome hover:text-paper"
                 >
-                  Request Sponsorship Information
+                  Custom Inquiry
                 </Link>
               </li>
             </ul>

@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { EVENTS, formatEventDate } from "@/data/events";
-import { SERVICES } from "@/data/services";
+import { SHOP_CATEGORIES } from "@/data/services";
 import Reveal from "@/components/Reveal";
 import SectionHead from "@/components/SectionHead";
 import { TimingBoard } from "@/components/EventCard";
@@ -52,7 +52,7 @@ const STREAMS = [
     icon: Trophy,
     title: "Cars",
     body: "Performance prep, fleet options, and race-ready cars handled by a team that builds, services, and drives at speed.",
-    href: "/race-team",
+    href: "/racing",
     cta: "Explore Fleet + Builds",
     src: "/images/events/sonoma/dsc_5156.jpg",
     label: "AOA cars at speed — Sonoma Raceway",
@@ -317,14 +317,19 @@ export default function HomePage() {
               title="Prepped by people who race"
               lede="AOA prepares and upgrades cars with a track-aware point of view — from pre-event inspections to full builds."
             />
-            <ul className="mt-6 grid grid-cols-2 gap-x-6 gap-y-2.5">
-              {SERVICES.slice(0, 8).map((s) => (
+            <ul className="mt-6 grid gap-2.5">
+              {SHOP_CATEGORIES.map((c) => (
                 <li
-                  key={s.id}
-                  className="flex items-center gap-2 text-sm text-chrome"
+                  key={c.id}
+                  className="flex items-start gap-2 text-sm text-chrome"
                 >
-                  <span className="h-1 w-1 shrink-0 bg-accent" aria-hidden="true" />
-                  {s.name}
+                  <span className="mt-1.5 h-1 w-1 shrink-0 bg-accent" aria-hidden="true" />
+                  <span>
+                    <span className="font-semibold uppercase tracking-[0.08em] text-paper">
+                      {c.name}
+                    </span>{" "}
+                    — {c.description}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -365,11 +370,11 @@ export default function HomePage() {
               Stats are placeholders — verified results only, per AOA
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="/race-team" className="btn-primary">
-                Meet the Race Team
+              <Link href="/racing" className="btn-primary">
+                Explore Our Racing Programs
               </Link>
-              <Link href="/race-team#inquiries" className="btn-ghost">
-                Request Sponsorship Information
+              <Link href="/racing#contact" className="btn-ghost">
+                Contact Us About Racing
               </Link>
             </div>
           </Reveal>

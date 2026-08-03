@@ -62,11 +62,17 @@ export default function RaceTeamPage() {
               lede="This isn't marketing garnish — AOA fields cars in real competition. The race program is how the shop stays sharp, how drivers level up, and how partners get in front of a crowd that loves cars."
             />
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#inquiries" className="btn-primary">
-                Explore Race Programs
+              <a
+                href={`mailto:${SITE.racingEmail}?subject=Racing%20Inquiry`}
+                className="btn-primary"
+              >
+                Contact Us About Racing
+              </a>
+              <a href={SITE.phoneTel} className="btn-ghost sm:hidden">
+                Call {SITE.phoneDisplay}
               </a>
               <a href="#inquiries" className="btn-ghost">
-                Request Sponsorship Information
+                Explore Race Programs
               </a>
             </div>
           </Reveal>
@@ -239,6 +245,41 @@ export default function RaceTeamPage() {
               title="Work with the team"
               lede="Sponsorship, driver and race-program interest, or race support for your own car — each path lands with the right person, already tagged."
             />
+          </Reveal>
+          <Reveal className="mt-8">
+            <div className="card border-l-2 border-l-accent p-6">
+              <p className="text-sm leading-relaxed text-chrome">
+                For competitive racing opportunities, pricing varies depending
+                on the event, series, support requirements, and vehicle.{" "}
+                <span className="text-paper">
+                  Contact us directly to discuss race participation and receive
+                  a custom quote.
+                </span>
+              </p>
+              <div className="mt-4 flex flex-wrap items-center gap-3">
+                <a
+                  href={`mailto:${SITE.racingEmail}?subject=Racing%20Inquiry`}
+                  className="btn-primary"
+                >
+                  Contact Us About Racing
+                </a>
+                <p className="font-mono text-[12px] text-chrome">
+                  <a
+                    href={`mailto:${SITE.racingEmail}`}
+                    className="text-paper underline hover:text-accent"
+                  >
+                    {SITE.racingEmail}
+                  </a>{" "}
+                  ·{" "}
+                  <a
+                    href={SITE.phoneTel}
+                    className="text-paper underline hover:text-accent"
+                  >
+                    {SITE.phoneDisplay}
+                  </a>
+                </p>
+              </div>
+            </div>
           </Reveal>
           <Reveal className="mt-10">
             <RaceInquiryTabs />

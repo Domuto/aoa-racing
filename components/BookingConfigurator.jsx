@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { Check, ShieldCheck, Car, KeyRound, HelpCircle } from "lucide-react";
-import { PACKAGES, ADD_ONS, FLEET, DEPOSIT_RATE, money } from "@/data/packages";
+import { PACKAGES, ADD_ONS, FLEET, FLEET_NOTES, DEPOSIT_RATE, money } from "@/data/packages";
 import { formatEventDate } from "@/data/events";
 import { submitForm } from "@/lib/site";
 
@@ -219,11 +219,28 @@ export default function BookingConfigurator({ event }) {
                     </span>
                     <span className="font-mono text-sm text-paper">
                       +{money(v.price)}
+                      <span className="text-chrome">/day</span>
                     </span>
                   </button>
                 );
               })}
             </div>
+          )}
+
+          {driverType === "rent" && (
+            <ul className="mt-4 space-y-1.5 border border-line bg-panel2 p-4">
+              {FLEET_NOTES.map((note) => (
+                <li
+                  key={note}
+                  className="flex gap-2 text-[13px] leading-relaxed text-chrome"
+                >
+                  <span className="text-accent" aria-hidden="true">
+                    –
+                  </span>
+                  {note}
+                </li>
+              ))}
+            </ul>
           )}
         </section>
 

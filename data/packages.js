@@ -1,8 +1,10 @@
 // ============================================================
-// ⚠️  PLACEHOLDER PRICING — package tiers, add-ons, and fleet
-//     entries below are sample structure for the booking
-//     configurator. Replace names/prices/inclusions with AOA
-//     Racing's approved offer before launch.
+// ⚠️  PLACEHOLDER PRICING — package tiers and add-ons below are
+//     sample structure for the booking configurator. Replace
+//     names/prices/inclusions with AOA Racing's approved offer
+//     before launch.
+//     ✅ FLEET pricing is REAL — approved per-vehicle, per-track-
+//     day rates from AOA (July 2026).
 // ============================================================
 
 export const PACKAGES = [
@@ -97,21 +99,46 @@ export const ADD_ONS = [
 ];
 
 // Rental fleet shown when a driver chooses "Rent an AOA vehicle".
-// Framework rule: only show availability AOA has actually
-// approved — these are generic sample classes, not real cars.
+// ✅ Real vehicles & rates — pricing is per vehicle, per track day.
 export const FLEET = [
   {
-    id: "fleet-a",
-    name: "AOA Track Coupe — GT-class", // PLACEHOLDER vehicle
-    price: 950, // PLACEHOLDER per-event rental
-    note: "Prepped, insured track car. Availability confirmed after request.",
+    id: "miata",
+    name: "Mazda MX-5 Miata",
+    price: 1500,
+    note: "Prepped track car. Availability confirmed after request.",
   },
   {
-    id: "fleet-b",
-    name: "AOA Spec Sedan — Momentum-class", // PLACEHOLDER vehicle
-    price: 650, // PLACEHOLDER per-event rental
-    note: "Ideal first track car. Availability confirmed after request.",
+    id: "gr-corolla",
+    name: "Toyota GR Corolla",
+    price: 1850,
+    note: "Prepped track car. Availability confirmed after request.",
   },
+  {
+    id: "e9x",
+    name: "BMW E9x Race Car",
+    price: 2500,
+    note: "Caged, race-prepped BMW. Availability confirmed after request.",
+  },
+  {
+    id: "m2",
+    name: "BMW M2",
+    price: 4500,
+    note: "Prepped track car. Availability confirmed after request.",
+  },
+  {
+    id: "c8",
+    name: "Chevrolet C8 Corvette",
+    price: 4750,
+    note: "Prepped track car. Availability confirmed after request.",
+  },
+];
+
+// Booking notes shown wherever fleet pricing appears.
+export const FLEET_NOTES = [
+  "Pricing is per vehicle, per track day.",
+  "Availability is subject to scheduling and maintenance.",
+  "Additional costs (track entry fees, tires, fuel, insurance, transportation, etc.) may apply depending on the selected package.",
+  "Customers can also choose to bring their own vehicle if eligible.",
 ];
 
 // Deposit terms — PLACEHOLDER. Confirm real policy with AOA.

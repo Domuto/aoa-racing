@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Phone } from "lucide-react";
 import { EVENTS } from "@/data/events";
 import { TRACKS } from "@/data/tracks";
+import { FLEET, FLEET_NOTES, money } from "@/data/packages";
 import { SITE } from "@/lib/site";
 import EventCard from "@/components/EventCard";
 import SectionHead from "@/components/SectionHead";
@@ -97,6 +98,49 @@ export default async function TrackDaysPage({ searchParams }) {
               ))}
             </div>
           )}
+
+          {/* Fleet & pricing */}
+          <Reveal className="mt-16">
+            <SectionHead
+              code="Arrive and drive"
+              title="Track day fleet & pricing"
+              lede="Rent a prepped AOA vehicle for your event — or bring your own car if eligible."
+            />
+            <div className="card mt-8 overflow-hidden">
+              <div className="grid grid-cols-[1fr_auto] gap-3 border-b border-line bg-panel2 px-5 py-3">
+                {["Vehicle", "Daily Rate"].map((h) => (
+                  <p key={h} className="tt-label">
+                    {h}
+                  </p>
+                ))}
+              </div>
+              {FLEET.map((v) => (
+                <div
+                  key={v.id}
+                  className="grid grid-cols-[1fr_auto] items-baseline gap-3 border-b border-line px-5 py-4 text-sm last:border-0"
+                >
+                  <p className="font-semibold text-paper">{v.name}</p>
+                  <p className="font-mono text-paper">
+                    {money(v.price)}
+                    <span className="text-chrome">/day</span>
+                  </p>
+                </div>
+              ))}
+            </div>
+            <ul className="mt-4 space-y-1.5">
+              {FLEET_NOTES.map((note) => (
+                <li
+                  key={note}
+                  className="flex gap-2 text-[13px] leading-relaxed text-chrome"
+                >
+                  <span className="text-accent" aria-hidden="true">
+                    –
+                  </span>
+                  {note}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
 
           {/* How booking works */}
           <Reveal className="mt-16">

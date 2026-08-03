@@ -1,16 +1,32 @@
 import Link from "next/link";
-import { Phone, ArrowRight, ClipboardList, MessageSquare, Wrench, Flag } from "lucide-react";
-import { SERVICES } from "@/data/services";
+import {
+  Phone,
+  ArrowRight,
+  ArrowUpRight,
+  ClipboardList,
+  MessageSquare,
+  Wrench,
+  Hammer,
+  Gauge,
+  Flag,
+  Sparkles,
+} from "lucide-react";
+import { SHOP_CATEGORIES } from "@/data/services";
 import { SITE } from "@/lib/site";
-import ServiceCard from "@/components/ServiceCard";
 import SectionHead from "@/components/SectionHead";
 import Media from "@/components/Media";
 import Reveal from "@/components/Reveal";
 
 export const metadata = {
-  title: "Performance Shop — Track Prep, Tires, Brakes & Builds",
+  title: "Performance Shop — Repair, Rebuild & Maintenance",
   description:
-    "AOA Racing's performance shop in Kennesaw, GA. Track-day prep, race prep, tires, brakes, suspension, upgrades, and custom builds — request a quote.",
+    "AOA Racing's performance shop in Kennesaw, GA. Organized into Repair, Rebuild, and Maintenance — plus custom inquiries for projects outside our standard services.",
+};
+
+const CATEGORY_ICONS = {
+  wrench: Wrench,
+  hammer: Hammer,
+  gauge: Gauge,
 };
 
 const PROCESS = [
@@ -69,23 +85,75 @@ export default function ShopPage() {
         </div>
       </section>
 
-      {/* Services */}
+      {/* Service categories */}
       <section className="section-pad">
         <div className="container-x">
           <Reveal>
             <SectionHead
-              code="Eight ways in"
-              title="What the shop does"
-              lede="Every card below routes to the quote form with your service pre-selected — the fastest way to get a real answer."
+              code="Three ways in"
+              title="Repair · Rebuild · Maintenance"
+              lede="The shop is organized into three service categories. Open a category to see exactly what it covers, then request a quote."
             />
           </Reveal>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {SERVICES.map((service, i) => (
-              <Reveal key={service.id} delay={(i % 4) * 70}>
-                <ServiceCard service={service} index={i} />
-              </Reveal>
-            ))}
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {SHOP_CATEGORIES.map((cat, i) => {
+              const Icon = CATEGORY_ICONS[cat.icon] || Wrench;
+              return (
+                <Reveal key={cat.id} delay={i * 80}>
+                  <Link
+                    href={`/shop/${cat.id}`}
+                    className="card card-hover group flex h-full flex-col p-7"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="flex h-12 w-12 items-center justify-center border border-line bg-panel2 text-accent">
+                        <Icon size={22} strokeWidth={1.75} />
+                      </span>
+                      <span className="font-mono text-[11px] tracking-[0.2em] text-chrome/50">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <h3 className="mt-5 font-display text-2xl uppercase">
+                      {cat.name}
+                    </h3>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-chrome">
+                      {cat.description}
+                    </p>
+                    <p className="mt-5 flex items-center gap-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.16em] text-paper transition-colors group-hover:text-accent">
+                      Explore {cat.name}
+                      <ArrowUpRight
+                        size={14}
+                        className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      />
+                    </p>
+                  </Link>
+                </Reveal>
+              );
+            })}
           </div>
+
+          {/* Custom inquiry callout */}
+          <Reveal className="mt-6">
+            <div className="card grid gap-6 border-l-2 border-l-accent p-7 sm:grid-cols-[1fr_auto] sm:items-center sm:p-8">
+              <div className="flex items-start gap-4">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-line bg-panel2 text-accent">
+                  <Sparkles size={20} strokeWidth={1.75} />
+                </span>
+                <div>
+                  <h3 className="font-display text-xl uppercase">
+                    Something outside our standard services?
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-chrome">
+                    Custom builds, fabrication, race support, fleet services, and
+                    other specialty projects have their own path — tell us what
+                    you have in mind.
+                  </p>
+                </div>
+              </div>
+              <Link href="/shop/custom-inquiry" className="btn-primary shrink-0">
+                Custom Inquiry <ArrowRight size={16} />
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 

@@ -63,6 +63,70 @@ export const SERVICES = [
   },
 ];
 
+// ============================================================
+// SHOP CATEGORIES — the performance shop is organized into
+// three service categories, each with its own dedicated page
+// (app/shop/[category]). Add/adjust items here to update the
+// category pages and the shop landing cards.
+// ============================================================
+export const SHOP_CATEGORIES = [
+  {
+    id: "repair",
+    name: "Repair",
+    icon: "wrench",
+    tagline: "Diagnose it, fix it, get it back on track.",
+    description:
+      "General mechanical repairs, diagnostics, suspension work, brake service, electrical diagnostics, and performance-related repairs.",
+    items: [
+      "General mechanical repairs",
+      "Diagnostics",
+      "Suspension work",
+      "Brake service",
+      "Electrical diagnostics",
+      "Performance-related repairs",
+    ],
+    image: "/images/events/barber/dsc_0256.jpg",
+  },
+  {
+    id: "rebuild",
+    name: "Rebuild",
+    icon: "hammer",
+    tagline: "Ground-up builds and full mechanical rebuilds.",
+    description:
+      "Engine rebuilds, transmission rebuilds, complete race car builds, restorations, and custom performance projects.",
+    items: [
+      "Engine rebuilds",
+      "Transmission rebuilds",
+      "Complete race car builds",
+      "Restorations",
+      "Custom performance projects",
+    ],
+    image: "/images/events/vir/dsc_3836.jpg",
+  },
+  {
+    id: "maintenance",
+    name: "Maintenance",
+    icon: "gauge",
+    tagline: "Keep it performing at its best, event after event.",
+    description:
+      "Routine maintenance, oil services, brake fluid flushes, cooling system service, alignments, track inspections, and preventative maintenance to keep vehicles performing at their best.",
+    items: [
+      "Routine maintenance",
+      "Oil services",
+      "Brake fluid flushes",
+      "Cooling system service",
+      "Alignments",
+      "Track inspections",
+      "Preventative maintenance",
+    ],
+    image: "/images/events/sonoma/dsc_3901.jpg",
+  },
+];
+
+export function getShopCategory(id) {
+  return SHOP_CATEGORIES.find((c) => c.id === id);
+}
+
 export const INTENDED_USE = [
   "Street car — occasional track days",
   "Dedicated track / HPDE car",

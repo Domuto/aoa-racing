@@ -174,27 +174,54 @@ export default function RaceInquiryTabs() {
               )}
 
               {tab === "driver" && (
-                <div>
-                  <label className="field-label" htmlFor="rt-exp">
-                    Experience level
-                  </label>
-                  <select
-                    id="rt-exp"
-                    className="field"
-                    required
-                    value={form.experience}
-                    onChange={(e) => set("experience", e.target.value)}
-                  >
-                    <option value="" disabled>
-                      Select experience…
-                    </option>
-                    {EXPERIENCE.map((x) => (
-                      <option key={x} value={x}>
-                        {x}
+                <>
+                  <div>
+                    <label className="field-label" htmlFor="rt-exp">
+                      Racing experience
+                    </label>
+                    <select
+                      id="rt-exp"
+                      className="field"
+                      required
+                      value={form.experience}
+                      onChange={(e) => set("experience", e.target.value)}
+                    >
+                      <option value="" disabled>
+                        Select experience…
                       </option>
-                    ))}
-                  </select>
-                </div>
+                      {EXPERIENCE.map((x) => (
+                        <option key={x} value={x}>
+                          {x}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>
+                    <label className="field-label" htmlFor="rt-series">
+                      Desired event or series
+                    </label>
+                    <input
+                      id="rt-series"
+                      className="field"
+                      required
+                      placeholder="e.g., WRL, SCCA Time Trials, endurance"
+                      value={form.event}
+                      onChange={(e) => set("event", e.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <label className="field-label" htmlFor="rt-vehicle">
+                      Vehicle (if applicable)
+                    </label>
+                    <input
+                      id="rt-vehicle"
+                      className="field"
+                      placeholder="Your car, or ask about an AOA seat"
+                      value={form.car}
+                      onChange={(e) => set("car", e.target.value)}
+                    />
+                  </div>
+                </>
               )}
 
               {tab === "support" && (
@@ -233,7 +260,7 @@ export default function RaceInquiryTabs() {
                   {tab === "sponsorship"
                     ? "What are you hoping to get out of a partnership?"
                     : tab === "driver"
-                      ? "Tell us about your goals"
+                      ? "Additional details"
                       : "What does your program need?"}
                 </label>
                 <textarea
