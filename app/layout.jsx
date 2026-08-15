@@ -1,6 +1,7 @@
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Preloader from "@/components/Preloader";
 import { SITE } from "@/lib/site";
 
 export const metadata = {
@@ -41,6 +42,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        <Preloader />
         <Header />
         <main>{children}</main>
         <Footer />
