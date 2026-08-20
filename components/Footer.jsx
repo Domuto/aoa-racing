@@ -152,7 +152,7 @@ export default function Footer() {
         <div className="border-t border-line">
           <div className="container-x flex flex-col gap-2 py-5 pb-24 font-mono text-[11px] uppercase tracking-[0.16em] text-chrome/70 sm:flex-row sm:items-center sm:justify-between sm:pb-5">
             <p>© {new Date().getFullYear()} AOA Racing. All rights reserved.</p>
-            <p>Kennesaw, Georgia — built for the Southeast track community</p>
+            <p>Marietta, Georgia — built for the Southeast track community</p>
           </div>
         </div>
       </div>

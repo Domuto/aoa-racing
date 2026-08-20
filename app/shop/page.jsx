@@ -20,7 +20,7 @@ import Reveal from "@/components/Reveal";
 export const metadata = {
   title: "Performance Shop — Repair, Rebuild & Maintenance",
   description:
-    "AOA Racing's performance shop in Kennesaw, GA. Organized into Repair, Rebuild, and Maintenance — plus custom inquiries for projects outside our standard services.",
+    "AOA Racing's performance shop in Marietta, GA. Organized into Repair, Rebuild, and Maintenance — plus custom inquiries for projects outside our standard services.",
 };
 
 const CATEGORY_ICONS = {

@@ -49,6 +49,15 @@ const DRIVERS = [
   { name: "[Driver Name]", role: "[Role / class]", src: "/images/events/barber/dsc_7461.jpg" },
 ];
 
+// ✅ Real podium tally since 2021 (verified, per AOA).
+const PODIUMS = [
+  { pos: "P1", count: 10, label: "Wins" },
+  { pos: "P2", count: 10, label: "Seconds" },
+  { pos: "P3", count: 14, label: "Thirds" },
+];
+const PODIUM_TOTAL = PODIUMS.reduce((sum, p) => sum + p.count, 0);
+
+
 export default function RaceTeamPage() {
   return (
     <>
@@ -85,6 +94,32 @@ export default function RaceTeamPage() {
               sizes="(max-width: 1024px) 100vw, 40vw"
             />
           </Reveal>
+        </div>
+      </section>
+
+      {/* Podiums since 2021 */}
+      <section className="border-b border-line bg-panel/20">
+        <div className="container-x py-10 sm:py-12">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="tt-label text-accent">Podiums since 2021</p>
+              <p className="mt-2 font-display text-2xl uppercase sm:text-3xl">
+                {PODIUM_TOTAL} podium finishes and counting
+              </p>
+            </div>
+            <dl className="grid grid-cols-3 gap-8 sm:gap-14">
+              {PODIUMS.map((p) => (
+                <div key={p.pos}>
+                  <dd className="font-display text-4xl text-paper sm:text-5xl">
+                    {p.count}
+                  </dd>
+                  <dt className="tt-label mt-1">
+                    <span className="text-accent">{p.pos}</span> · {p.label}
+                  </dt>
+                </div>
+              ))}
+            </dl>
+          </div>
         </div>
       </section>
 

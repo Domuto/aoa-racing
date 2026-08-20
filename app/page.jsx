@@ -21,6 +21,7 @@ import SectionHead from "@/components/SectionHead";
 import { TimingBoard } from "@/components/EventCard";
 import Media from "@/components/Media";
 import LeadCapture from "@/components/LeadCapture";
+import InstagramFeed from "@/components/InstagramFeed";
 
 /* ------------------------------------------------------------------
    Section 2 data — the three revenue streams, in framework priority
@@ -113,7 +114,7 @@ export default function HomePage() {
           <div className="max-w-2xl">
             <p className="tt-label flex items-center gap-3 text-paper/85">
               <span className="inline-block h-[2px] w-8 bg-accent" aria-hidden="true" />
-              Kennesaw, GA · Racing · Track Days · Cars
+              Marietta, GA · Racing · Track Days · Cars
             </p>
             <h1 className="display mt-6 text-[16vw] text-white sm:text-7xl lg:text-8xl">
               Get ready to
@@ -357,7 +358,7 @@ export default function HomePage() {
             <dl className="mt-8 grid grid-cols-3 gap-4 border-y border-line py-6">
               {[
                 ["Seasons run", "[XX]"],
-                ["Podiums", "[XX]"],
+                ["Podiums", "34"],
                 ["Team cars", "[XX]"],
               ].map(([label, value]) => (
                 <div key={label}>
@@ -367,7 +368,7 @@ export default function HomePage() {
               ))}
             </dl>
             <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-chrome/50">
-              Stats are placeholders — verified results only, per AOA
+              Seasons &amp; team-car counts are placeholders — verified results only, per AOA
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link href="/racing" className="btn-primary">
@@ -476,8 +477,24 @@ export default function HomePage() {
             <p className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-chrome/60">
               <MapPin size={12} className="text-accent" />
               {SITE.address.line1}, {SITE.address.city}, {SITE.address.state} —
-              15 min from downtown Kennesaw
+              minutes from downtown Marietta
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ============ 9 · INSTAGRAM ============ */}
+      <section className="section-pad pt-0">
+        <div className="container-x">
+          <Reveal>
+            <SectionHead
+              code="Follow the build"
+              title="Latest from Instagram"
+              lede="See the newest cars, track days, and race weekends as they happen — straight from @aoa_racing_."
+            />
+          </Reveal>
+          <Reveal className="mt-8">
+            <InstagramFeed />
           </Reveal>
         </div>
       </section>

@@ -63,19 +63,6 @@ export const EVENTS = [
     format: "2 days · garages · group dinner Saturday",
   },
   {
-    slug: "cmp-oct",
-    name: "CMP Time Trial Prep",
-    date: "2026-10-24", // PLACEHOLDER
-    trackSlug: "carolina-motorsports-park",
-    track: "Carolina Motorsports Park",
-    city: "Kershaw, SC",
-    audience: "Advanced · Time trial focus",
-    startingPrice: 545, // PLACEHOLDER
-    availability: "waitlist",
-    slotsNote: "Waitlist only",
-    format: "Timed sessions · data review with coaches",
-  },
-  {
     slug: "amp-corporate-nov",
     name: "AMP Corporate Experience",
     date: "2026-11-07", // PLACEHOLDER

@@ -7,7 +7,7 @@ import Reveal from "@/components/Reveal";
 export const metadata = {
   title: "Contact AOA Racing",
   description:
-    "Reach AOA Racing in Kennesaw, GA — bookings, shop quotes, race programs, sponsorships, and general questions.",
+    "Reach AOA Racing in Marietta, GA — bookings, shop quotes, race programs, sponsorships, and general questions.",
 };
 
 export default function ContactPage() {

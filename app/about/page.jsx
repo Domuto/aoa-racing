@@ -8,7 +8,7 @@ import Reveal from "@/components/Reveal";
 export const metadata = {
   title: "About AOA Racing",
   description:
-    "AOA Racing is a Kennesaw, Georgia motorsports company — track day operator, performance shop, and working race team under one roof.",
+    "AOA Racing is a Marietta, Georgia motorsports company — track day operator, performance shop, and working race team under one roof.",
 };
 
 const VALUES = [
@@ -42,7 +42,7 @@ export default function AboutPage() {
         <div className="container-x grid gap-10 py-14 sm:py-20 lg:grid-cols-[1.2fr_1fr] lg:items-center">
           <Reveal>
             <SectionHead
-              code="Kennesaw, Georgia"
+              code="Marietta, Georgia"
               title="Built to get you on track"
               lede="AOA Racing exists to close the gap between loving cars and actually driving them the way they were built to be driven — with real events, real preparation, and a real race program behind it all."
             />
@@ -76,7 +76,7 @@ export default function AboutPage() {
                 experiences shouldn&apos;t require knowing a guy.
               </p>
               <p>
-                Today AOA runs three connected programs from Kennesaw: track
+                Today AOA runs three connected programs from Marietta: track
                 days that welcome first-timers and push veterans, a
                 performance shop that preps cars with a racer&apos;s eye, and
                 a race team that proves the whole operation under a green

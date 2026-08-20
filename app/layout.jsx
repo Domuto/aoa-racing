@@ -12,7 +12,7 @@ export const metadata = {
     apple: "/images/logo.png",
   },
   title: {
-    default: "AOA Racing — Track Days, Performance Shop & Race Team | Kennesaw, GA",
+    default: "AOA Racing — Track Days, Performance Shop & Race Team | Marietta, GA",
     template: "%s | AOA Racing",
   },
   description: SITE.description,

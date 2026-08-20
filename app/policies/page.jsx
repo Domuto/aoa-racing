@@ -21,9 +21,34 @@ const SECTIONS = [
   {
     id: "cancellation",
     icon: CalendarX,
-    title: "Cancellation & refunds",
-    body: "Plans change — here's how changes, credits, and refunds work for track day reservations, deposits, and add-ons.",
-    placeholder: "Insert AOA's real cancellation windows, refund percentages, transfer rules, and deposit terms. Framework rule: never publish invented policy terms.",
+    title: "Cancellation & rescheduling",
+    body: "Plans change — here's how cancellations, credits, and refunds work for race car rentals, deposits, and track events.",
+    points: [
+      {
+        title: "Client-initiated cancellation",
+        body: (
+          <>
+            To cancel or reschedule a race car rental, the Renter must submit written notice via email to{" "}
+            <a href={`mailto:${SITE.racingEmail}`} className="text-paper underline hover:text-accent">
+              {SITE.racingEmail}
+            </a>
+            .
+          </>
+        ),
+      },
+      {
+        title: "Rescheduling option",
+        body: "Subject to car availability, deposits eligible for forfeiture may instead be transferred as a credit toward a rescheduled track event occurring within 30 days of the original booking.",
+      },
+      {
+        title: "Weather / event cancellation",
+        body: "If the official track day or race event is canceled by the sanctioning body or track management due to weather or safety, this rental agreement may be rescheduled with zero penalty, at the discretion of the Renter.",
+      },
+      {
+        title: "Provider cancellation",
+        body: "AOA Motorsports reserves the right to cancel the rental contract due to unforeseen mechanical failure or force majeure. In such cases, a 100% refund of all monies paid will be returned to the Renter immediately.",
+      },
+    ],
   },
   {
     id: "weather",
@@ -76,10 +101,25 @@ export default function PoliciesPage() {
                     <h2 className="font-display text-2xl uppercase sm:text-3xl">{s.title}</h2>
                   </div>
                   <p className="mt-4 text-sm leading-relaxed text-chrome sm:text-base">{s.body}</p>
-                  <div className="placeholder-note mt-5">
-                    <p className="font-semibold">⚠ Placeholder — official terms required</p>
-                    <p className="mt-1">{s.placeholder}</p>
-                  </div>
+                  {s.points ? (
+                    <ol className="mt-5 space-y-4">
+                      {s.points.map((p, n) => (
+                        <li key={p.title} className="flex gap-3">
+                          <span className="flex h-6 w-6 shrink-0 items-center justify-center border border-line bg-panel2 text-xs font-semibold text-accent">
+                            {n + 1}
+                          </span>
+                          <p className="text-sm leading-relaxed text-chrome sm:text-base">
+                            <span className="font-semibold text-paper">{p.title}:</span> {p.body}
+                          </p>
+                        </li>
+                      ))}
+                    </ol>
+                  ) : (
+                    <div className="placeholder-note mt-5">
+                      <p className="font-semibold">⚠ Placeholder — official terms required</p>
+                      <p className="mt-1">{s.placeholder}</p>
+                    </div>
+                  )}
                 </article>
               </Reveal>
             );

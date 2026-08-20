@@ -117,13 +117,25 @@ export default async function TrackDaysPage({ searchParams }) {
               {FLEET.map((v) => (
                 <div
                   key={v.id}
-                  className="grid grid-cols-[1fr_auto] items-baseline gap-3 border-b border-line px-5 py-4 text-sm last:border-0"
+                  className="border-b border-line px-5 py-4 last:border-0"
                 >
-                  <p className="font-semibold text-paper">{v.name}</p>
-                  <p className="font-mono text-paper">
-                    {money(v.price)}
-                    <span className="text-chrome">/day</span>
-                  </p>
+                  <div className="flex items-baseline justify-between gap-3">
+                    <p className="font-semibold text-paper">{v.name}</p>
+                    <p className="whitespace-nowrap font-mono text-paper">
+                      {money(v.price)}
+                      <span className="text-chrome">/day</span>
+                    </p>
+                  </div>
+                  {v.tagline && (
+                    <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-accent">
+                      {v.tagline}
+                    </p>
+                  )}
+                  {v.specs && (
+                    <p className="mt-1.5 text-[13px] leading-relaxed text-chrome">
+                      {v.specs.join(" · ")}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>
