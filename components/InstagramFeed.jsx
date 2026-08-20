@@ -1,11 +1,12 @@
 import { Instagram, ArrowUpRight } from "lucide-react";
 import { SITE } from "@/lib/site";
+import InstagramPosts from "@/components/InstagramPosts";
 
-// Homepage Instagram feed. When `socials.instagramEmbedUrl` is set (a free
-// LightWidget / Behold / SnapWidget URL for @aoa_racing_) it renders a live,
-// auto-updating feed of the newest posts. Until then it shows a Follow CTA.
+// Homepage Instagram feed. Priority: a widget embed URL (live auto-updating
+// feed) > official post embeds from public links > a Follow CTA fallback.
 export default function InstagramFeed() {
-  const { instagram, instagramHandle, instagramEmbedUrl } = SITE.socials;
+  const { instagram, instagramHandle, instagramEmbedUrl, instagramPosts } =
+    SITE.socials;
 
   return (
     <div className="card overflow-hidden">
@@ -42,6 +43,10 @@ export default function InstagramFeed() {
             loading="lazy"
             scrolling="no"
           />
+        </div>
+      ) : instagramPosts?.length ? (
+        <div className="p-6 sm:p-8">
+          <InstagramPosts posts={instagramPosts} />
         </div>
       ) : (
         <div className="p-6 sm:p-8">
