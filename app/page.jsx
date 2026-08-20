@@ -357,9 +357,9 @@ export default function HomePage() {
             />
             <dl className="mt-8 grid grid-cols-3 gap-4 border-y border-line py-6">
               {[
-                ["Seasons run", "[XX]"],
+                ["Seasons run", "25"],
                 ["Podiums", "34"],
-                ["Team cars", "[XX]"],
+                ["Team cars", "8"],
               ].map(([label, value]) => (
                 <div key={label}>
                   <dd className="font-display text-4xl text-paper">{value}</dd>
@@ -368,7 +368,7 @@ export default function HomePage() {
               ))}
             </dl>
             <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-chrome/50">
-              Seasons &amp; team-car counts are placeholders — verified results only, per AOA
+              Verified AOA race-team figures since 2021
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link href="/racing" className="btn-primary">

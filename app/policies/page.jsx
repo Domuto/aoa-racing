@@ -33,6 +33,20 @@ const SECTIONS = [
               {SITE.racingEmail}
             </a>
             .
+            <ul className="mt-3 space-y-2 border-l border-line pl-4 text-[13px] sm:text-sm">
+              <li>
+                <span className="font-semibold text-paper">21 or more days before the event:</span>{" "}
+                Full refund of the deposit paid.
+              </li>
+              <li>
+                <span className="font-semibold text-paper">7 to 20 days before the event:</span>{" "}
+                Forfeiture of the standard 50% booking deposit.
+              </li>
+              <li>
+                <span className="font-semibold text-paper">Less than 72 hours before the event or no-show:</span>{" "}
+                100% of the total rental fee is non-refundable and due immediately.
+              </li>
+            </ul>
           </>
         ),
       },
